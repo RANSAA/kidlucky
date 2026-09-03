@@ -47,7 +47,6 @@ jobs:
 
 
 
-
       ## 将仓库同步到：https://gitee.com/kidlucky/kidlucky
       ## 支持Gitee, Github, Gitlab and Gitcode
       ## 注意：同步时两端的仓库名称会一致，如果目标仓库不存在则会创建。
