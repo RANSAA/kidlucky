@@ -7,6 +7,14 @@ on:
 
   #手动执行任务
   workflow_dispatch:
+
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -40,7 +48,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./web
+          publish_dir: ./web/
           force_orphan: true  # 使用空分支防止冲突
 
 
@@ -67,6 +75,7 @@ jobs:
           # 仓库名不同时同步。示例：将源仓库github-kidlucky 映射到 目标仓库gitee-kidlucky
           # mappings: "github-kidlucky=>gitee-kidlucky"
           force_update: true
+
 
 
 
