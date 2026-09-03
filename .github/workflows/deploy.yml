@@ -48,7 +48,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./web/
+          publish_dir: ./web
           force_orphan: true  # 使用空分支防止冲突
 
 
@@ -63,9 +63,9 @@ jobs:
         with:
           # src: github/RANSAA
           src: github/${{ github.repository_owner }}
-          src_token: ${{ secrets.GITHUB_TOKEN }}
-          #
           dst: gitee/kidlucky
+          #
+          src_token: ${{ secrets.GITHUB_TOKEN }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           account_type: user
