@@ -1,0 +1,80 @@
+name: Deploy To Netlify And Gitee
+
+on:
+  push:
+    branches:
+      - main  # 当推送到 main 分支时触发
+
+  #手动执行任务
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 检出代码仓库
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+
+
+
+      ## 部署到netlify 使用nwtgck用户的yaml
+      - name: Deploy to Netlify Use nwtgck
+        uses: nwtgck/actions-netlify@v4.0
+        with:
+          publish-dir: './web'
+          production-deploy: true
+          enable-pull-request-comment: false
+          enable-commit-comment: false
+          enable-commit-status: false
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+
+
+
+      ## 部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./web
+          force_orphan: true  # 使用空分支防止冲突
+
+
+
+
+
+
+      ## 将仓库同步到：https://gitee.com/kidlucky/kidlucky
+      ## 支持Gitee, Github, Gitlab and Gitcode
+      ## 注意：同步时两端的仓库名称会一致，如果目标仓库不存在则会创建。
+      - name: Mirror the Github organization repos to Gitee.
+        uses: Yikun/hub-mirror-action@master
+        with:
+          # src: github/RANSAA
+          src: github/${{ github.repository_owner }}
+          src_token: ${{ secrets.GITHUB_TOKEN }}
+          #
+          dst: gitee/kidlucky
+          dst_token: ${{ secrets.GITEE_TOKEN }}
+          dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+          account_type: user
+          # 只想同步当前这个仓库
+          # static_list: "kidlucky"
+          static_list: ${{ github.event.repository.name }}
+          # 仓库名不同时同步。示例：将源仓库github-kidlucky 映射到 目标仓库gitee-kidlucky
+          # mappings: "github-kidlucky=>gitee-kidlucky"
+          force_update: true
+
+
+
+
+
+
+
+
+
+
