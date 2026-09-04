@@ -1,4 +1,4 @@
-name: Deploy To Netlify And Gitee
+name: Deploy Mirror To Netlify  Gitee And GitCode
 
 on:
   push:
