@@ -8,22 +8,25 @@
 4. 存放的`数据不能违规`，比如不能存放黄色的视频，图片，文字。否则国内的站点将无法访问原始数据。
 
 ## 镜像与同步
-该站点分为一个主仓库和多个镜像仓库。其中GitHub上面的仓库为主站，Gitee，GitCode为镜像站。 \
-所以关于仓库的所有操作，比如push操作只能在GitHub仓库操作这样太能使其它镜像站数据保持一致。 \
-并且还提供了github.io 和 netlify部署站点，部署站点部署的是web目录。
+该站点分为一个主仓库和多个镜像仓库。其中`GitHub上面的仓库为主站`，`Gitee，GitCode为镜像站`。 \
+所以关于仓库的所有操作，比如push操作`只能在GitHub仓库操作`这样才能使其它镜像站数据保持一致。 \
+并且还提供了`github.io和netlify部署站点`，部署站点部署的是web目录。
+
+
 
 
 * **Github**：https://github.com/RANSAA/kidlucky
-* **Gitee**：https://gitee.com/kidlucky/kidlucky
 * **GitCode**：https://gitcode.com/sayaDev/kidlucky
+* **Gitee**：https://gitee.com/kidlucky/kidlucky
 * **Netlify**：https://kidlucky.netlify.app
 * **Github.io**：https://ransaa.github.io/kidlucky
+
 
 
 \
 **原始资源获取优先级**: 
 ```
-Gitee > GitCode > Netlify > Github.io > Github Mirror
+GitCode > Gitee > Netlify > Github Mirror > Github.io 
 ```
 
 
