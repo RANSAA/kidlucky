@@ -1,4 +1,4 @@
-name: Deploy Mirror To Netlify  Gitee And GitCode
+name: Deploy To Netlify  Gitee And GitCode
 
 on:
   push:
@@ -16,7 +16,7 @@ permissions:
 
 
 jobs:
-  Deploy:
+  Mirror:
     runs-on: ubuntu-latest
 
     steps:
