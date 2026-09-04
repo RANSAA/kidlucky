@@ -66,8 +66,8 @@ jobs:
           dst: gitee/kidlucky
           #
           src_token: ${{ secrets.GITHUB_TOKEN }}
-          dst_token: ${{ secrets.GITEE_TOKEN }}
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+          dst_token: ${{ secrets.GITEE_TOKEN }}
           account_type: user
           # 只想同步当前这个仓库
           # static_list: "kidlucky"
@@ -75,6 +75,34 @@ jobs:
           # 仓库名不同时同步。示例：将源仓库github-kidlucky 映射到 目标仓库gitee-kidlucky
           # mappings: "github-kidlucky=>gitee-kidlucky"
           force_update: true
+
+
+
+
+
+      ## 将仓库同步到：https://gitcode.com/sayaDev/kidlucky
+      ## 支持Gitee, Github, Gitlab and Gitcode
+      ## 注意：同步时两端的仓库名称会一致，如果目标仓库不存在则会创建。
+      - name: Mirror the Github organization repos to GitCode.
+        uses: Yikun/hub-mirror-action@master
+        with:
+          # src: github/RANSAA
+          src: github/${{ github.repository_owner }}
+          dst: gitcode/sayaDev
+          #
+          src_token: ${{ secrets.GITHUB_TOKEN }}
+          dst_key: ${{ secrets.GITCODE_PRIVATE_KEY }}
+          dst_token: ${{ secrets.GITCODE_TOKEN }}
+          account_type: user
+          # 只想同步当前这个仓库
+          # static_list: "kidlucky"
+          static_list: ${{ github.event.repository.name }}
+          # 仓库名不同时同步。示例：将源仓库github-kidlucky 映射到 目标仓库gitee-kidlucky
+          # mappings: "github-kidlucky=>gitee-kidlucky"
+          force_update: true
+
+
+
 
 
 
