@@ -32,6 +32,9 @@ GitCode > Gitee > Netlify > Github Mirror > Github.io
 
 ## 资源下载链接
 
+### 注意：
+gitcode.com站点的资源如果长时间未请求，可能请求不到原始的数据，需要用户登录指定的仓库后才能正常访问。
+
 #### cts-v3
 功能简介：iOS APP管理控制程序的服务源加密文件，加密规则请查看《[TKAppManager](https://github.com/RANSAA/TKAppManager)》
 * https://raw.gitcode.com/sayaDev/kidlucky/raw/master/web/safe/deploy/cts-v3
