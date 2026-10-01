@@ -75,6 +75,8 @@ jobs:
           # 仓库名不同时同步。示例：将源仓库github-kidlucky 映射到 目标仓库gitee-kidlucky
           # mappings: "github-kidlucky=>gitee-kidlucky"
           force_update: true
+          timeout: 30m
+          api_timeout: 600
 
 
 
@@ -100,6 +102,8 @@ jobs:
           # 仓库名不同时同步。示例：将源仓库github-kidlucky 映射到 目标仓库gitee-kidlucky
           # mappings: "github-kidlucky=>gitee-kidlucky"
           force_update: true
+          timeout: 30m
+          api_timeout: 600
 
 
 
